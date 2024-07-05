@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: KPS_Algo</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: KPS_Algo</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>KPS_Algo module</p></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="KPS_Algo.js.html">KPS_Algo.js</a>, <a href="KPS_Algo.js.html#line5">line 5</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~LOWER_BRIDGE"><span class="type-signature">(inner) </span>LOWER_BRIDGE<span class="signature">(S, L, hull_points)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>The LOWER_BRIDGE function in JavaScript recursively finds the lower bridge of a set of points with
+respect to a given line L.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>S</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>It seems like the description of the parameter <code>S</code> is missing. Could you please provide
+more information about what <code>S</code> represents in the context of the <code>LOWER_BRIDGE</code> function?</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>L</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>It seems like the description of the parameter L is missing in your message. Could you
+please provide more information about what L represents in the context of the LOWER_BRIDGE function?</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hull_points</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>hull_points</code> parameter in the <code>LOWER_HULL</code> function represents a set of
+points that form the convex hull. This set is updated as the algorithm progresses to include new
+points that are part of the lower hull.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="KPS_Algo.js.html">KPS_Algo.js</a>, <a href="KPS_Algo.js.html#line513">line 513</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The function <code>LOWER_BRIDGE</code> is returning an array of two points <code>[Pk, Pm]</code> which represent
+the lower bridge points.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~LOWER_HULL"><span class="type-signature">(inner) </span>LOWER_HULL<span class="signature">(pmin, pmax, T, hull_points)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>The LOWER_HULL function recursively computes the lower convex hull of a set of points in a
+divide-and-conquer manner.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pmin</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>It seems like you were about to provide a description of the <code>pmin</code> parameter, but the
+description is missing. Could you please provide more information about what the <code>pmin</code> parameter
+represents in the context of the <code>LOWER_HULL</code> function?</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pmax</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>It seems like you were about to provide some information about the <code>pmax</code> parameter in
+the <code>LOWER_HULL</code> function, but the message got cut off. Could you please provide more details or let
+me know if you need help with something specific related to the <code>pmax</code> parameter?</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>T</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>It seems like the code snippet you provided is a part of an algorithm for computing the
+lower convex hull of a set of points. The function <code>LOWER_HULL</code> takes several parameters including
+<code>pmin</code>, <code>pmax</code>, <code>T</code>, and <code>hull_points</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hull_points</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>hull_points</code> parameter in the <code>LOWER_HULL</code> function represents a set of
+points that form the convex hull. This set is updated as the algorithm progresses to include new
+points that are part of the lower hull.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="KPS_Algo.js.html">KPS_Algo.js</a>, <a href="KPS_Algo.js.html#line401">line 401</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The function <code>LOWER_HULL</code> is returning the concatenation of the lower hulls of the left and
+right portions of the input set <code>T</code>.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~UPPER_BRIDGE"><span class="type-signature">(inner) </span>UPPER_BRIDGE<span class="signature">(S, L, hull_points)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>The UPPER_BRIDGE function in JavaScript calculates the upper bridge of a set of points based on
+their x and y coordinates.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>S</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>S</code> parameter in the <code>UPPER_BRIDGE</code> function represents an array of points on a 2D
+plane. Each point is represented as an object with <code>x</code> and <code>y</code> coordinates.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>L</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The parameter <code>L</code> in the UPPER_BRIDGE function represents the x-coordinate value at which
+we want to find the upper bridge. It is used to determine if the bridge is contained within the
+specified range.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hull_points</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>hull_points</code> parameter in the <code>UPPER_HULL</code> function represents a set of
+points that form the convex hull. This set is updated as the algorithm progresses to include the
+points that are part of the upper hull.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="KPS_Algo.js.html">KPS_Algo.js</a>, <a href="KPS_Algo.js.html#line203">line 203</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The UPPER_BRIDGE function returns an array of two points representing the upper bridge of a
+set of points.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~UPPER_HULL"><span class="type-signature">(inner) </span>UPPER_HULL<span class="signature">(pmin, pmax, T, hull_points)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>The UPPER_HULL function recursively computes the upper convex hull of a set of points in a
+divide-and-conquer manner.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pmin</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Based on the provided code snippet, the parameter <code>pmin</code> in the <code>UPPER_HULL</code> function
+represents the minimum x-coordinate of the current subset of points being processed. It is used in
+the recursive calls to <code>UPPER_HULL</code> to define the left boundary of the current subset.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pmax</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>It seems like you were about to provide some information about the <code>pmax</code> parameter,
+but the message got cut off. Could you please provide more details or let me know how I can assist
+you further with the <code>pmax</code> parameter?</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>T</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The parameter <code>T</code> in the <code>UPPER_HULL</code> function represents a set of points in a 2D plane.
+Each point in <code>T</code> is represented as an object with <code>x</code> and <code>y</code> coordinates. The function
+<code>UPPER_HULL</code> is a part of the</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hull_points</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>hull_points</code> parameter in the <code>UPPER_HULL</code> function represents a set of
+points that form the convex hull. This set is updated as the algorithm progresses to include the
+points that are part of the upper hull.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="KPS_Algo.js.html">KPS_Algo.js</a>, <a href="KPS_Algo.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The function <code>UPPER_HULL</code> is returning the concatenated list of <code>upperHullLeft</code> and
+<code>upperHullRight</code>, which are the results of recursively calling <code>UPPER_HULL</code> on the <code>Tleft</code> and
+<code>Tright</code> subsets of points.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~convexHull"><span class="type-signature">(inner) </span>convexHull<span class="signature">(points)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>The <code>convexHull</code> function in JavaScript calculates the convex hull of a set of points using the
+Graham scan algorithm and returns the intermediate states of the algorithm.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>points</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>convexHull</code> function you provided seems to be implementing the Convex Hull
+algorithm. It first finds the minimum and maximum points based on x-coordinate and then proceeds to
+compute the upper and lower hulls.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="KPS_Algo.js.html">KPS_Algo.js</a>, <a href="KPS_Algo.js.html#line758">line 758</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The <code>convexHull</code> function returns an array <code>states</code> which contains information about the
+steps taken in the algorithm to compute the convex hull of a set of points. The array <code>states</code>
+includes various data structures and intermediate results at different stages of the algorithm.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~convexHullClockwise"><span class="type-signature">(inner) </span>convexHullClockwise<span class="signature">(points)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>The function <code>convexHullClockwise</code> generates the convex hull of a set of points in clockwise order
+starting from the lowest point.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>points</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>points</code> parameter in the <code>convexHullClockwise</code> function represents an array of
+2D points for which you want to generate the convex hull. Each point in the array is an object with
+<code>x</code> and <code>y</code> coordinates, like this:</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="KPS_Algo.js.html">KPS_Algo.js</a>, <a href="KPS_Algo.js.html#line716">line 716</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The function <code>convexHullClockwise</code> is returning the <code>hullPoints</code> array after sorting the
+points based on the angle from the lowest point in a clockwise direction.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~crossProduct"><span class="type-signature">(inner) </span>crossProduct<span class="signature">(A, B, P)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>The function calculates the cross product of vectors formed by points A, B, and P in 2D space.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>A</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A is a point in 2D space represented by its x and y coordinates.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>B</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The parameter B represents a point in 2D space with coordinates (B.x, B.y).</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>P</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>P</code> parameter in the <code>crossProduct</code> function represents a point in a 2D plane. It is
+typically an object with <code>x</code> and <code>y</code> properties that denote the coordinates of the point.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="KPS_Algo.js.html">KPS_Algo.js</a>, <a href="KPS_Algo.js.html#line138">line 138</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The function <code>crossProduct</code> calculates the cross product of vectors AP and AB. The result
+being returned is the value of the cross product, which is a scalar value representing the signed
+area of the parallelogram formed by vectors AP and AB.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~isPointToLeftOfLine"><span class="type-signature">(inner) </span>isPointToLeftOfLine<span class="signature">(point, lineStart, lineEnd)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>The function determines if a point is to the left of a line defined by two other points.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>point</code> parameter represents the coordinates of a point in a 2D plane. It
+typically consists of an x-coordinate and a y-coordinate, denoted as <code>(x, y)</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lineStart</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>lineStart</code> parameter represents the starting point of the line segment. It
+is a two-dimensional point in the form of an array or object with <code>x</code> and <code>y</code> coordinates.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lineEnd</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The <code>lineEnd</code> parameter represents the end point of the line segment. It is a point
+in a 2D coordinate system that defines one end of the line segment.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="KPS_Algo.js.html">KPS_Algo.js</a>, <a href="KPS_Algo.js.html#line154">line 154</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>a boolean value indicating whether the point is to the left of the line formed by the
+lineStart and lineEnd points.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~threePointsLower"><span class="type-signature">(inner) </span>threePointsLower<span class="signature">(S)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>The function <code>threePointsLower</code> sorts three points by their x-coordinates and returns the two points
+that form the lower boundary of the triangle they create.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>S</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>It looks like the function <code>threePointsLower</code> takes an array of points <code>S</code> as input. The
+function then sorts the points based on their x-coordinate, selects three points A, B, and P from
+the sorted array, and determines which two points are lower based on their position relative to</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="KPS_Algo.js.html">KPS_Algo.js</a>, <a href="KPS_Algo.js.html#line688">line 688</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The function <code>threePointsLower(S)</code> returns an array containing two points.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~threePointsUpper"><span class="type-signature">(inner) </span>threePointsUpper<span class="signature">(S)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>The function <code>threePointsUpper</code> sorts three points based on their x-coordinates and returns the
+upper two points in counter-clockwise order.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>S</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>It looks like the function <code>threePointsUpper</code> is designed to take an array of three
+points as input and determine the upper two points based on their x-coordinates. The function then
+sorts the points by their x-coordinates and compares their positions to determine the upper two
+points.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="KPS_Algo.js.html">KPS_Algo.js</a>, <a href="KPS_Algo.js.html#line169">line 169</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The function <code>threePointsUpper</code> returns an array containing two points. The points are
+determined based on their x-coordinates and their position relative to a line formed by two other
+points in the input array <code>S</code>.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-JARVIS_MARCH_Algo.html">JARVIS_MARCH_Algo</a></li><li><a href="module-JM_Canvas.html">JM_Canvas</a></li><li><a href="module-JM_Visualization.html">JM_Visualization</a></li><li><a href="module-KPS_Algo.html">KPS_Algo</a></li><li><a href="module-KPS_Canvas.html">KPS_Canvas</a></li><li><a href="module-KPS_Visualization.html">KPS_Visualization</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Apr 02 2024 21:45:54 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: KPS_Visualization.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: KPS_Visualization.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file This file utilizes useEffect and incorporates various button functionalities such as 
+ * GenerateHull, NextState, and PreviousState to display visualizations of each effect when clicked.
+*/
+
+/**
+ * KPS_Visualization module
+ * @module KPS_Visualization
+ */
+
+// App.js
+import React, { useState } from 'react';
+import Canvas from './KPS_Canvas';
+import Button from './Button';
+import convexHull from './KPS_Algo';
+import './kpm.css';
+
+/* These lines of code are declaring and initializing variables in the JavaScript file `App.js` for the
+Convex Hull Visualization application. Here is what each variable is used for: */
+let check = -1;
+let fhull = [];
+let noOfStates = 21;
+let done = 0;
+
+/**
+ * The `App` function in JavaScript sets up a visualization for generating and displaying a convex hull
+ * based on user input and random points.
+ * @returns The `App` component is being returned. It contains the JSX structure for the Convex Hull
+ * Visualization application, including the title, canvas container, button container, and description
+ * container. The component also includes various state variables, functions for handling point clicks,
+ * generating random points, generating convex hull, running convex hull, and updating the description.
+ */
+function App() {
+  const [points, setPoints] = useState([]);
+  const [convexHullPoints, setConvexHullPoints] = useState([]);
+  // const [medianLine, setMedianLine] = useState(null); // State to hold the median line
+  const [currentState, setCurrentState] = useState(-1);
+  const [myArr, setMyArr] = useState([]);
+  const [description, setDescription] = useState("You can see the Description for each state here.");
+
+  // let noOfStates = 0;
+/**
+ * The function `handlePointClick` adds a new point to an array of points.
+ * @param newPoint - The `newPoint` parameter in the `handlePointClick` function represents a new point
+ * that is being added to an array of points.
+ */
+  const handlePointClick = (newPoint) => {
+    setPoints([...points, newPoint]);
+    // storePoints = [...points,newPoint];
+  };
+
+/**
+ * The updateDescription function updates the description with a new value.
+ * @param newDescription - The `updateDescription` function takes a `newDescription` parameter, which
+ * is used to update the description in the code.
+ */
+  const updateDescription = (newDescription) => {
+    setDescription(newDescription);
+  };
+
+ /**
+  * The function `generateRandomPoints` generates 20 random points with x and y coordinates within
+  * specified canvas dimensions and adds them to an existing array of points.
+  */
+  const generateRandomPoints = () => {
+    const randomPoints = [];
+    for (let i = 0; i &lt; 20; i++) {
+      // Generate random x and y coordinates within canvas dimensions
+      const randomX = Math.random() * 500; // Change canvasWidth to your canvas width
+      const randomY = Math.random() * 500; // Change canvasHeight to your canvas height
+      randomPoints.push({ x: randomX, y: randomY });
+    }
+    // points.push(...randomPoints);
+    setPoints([...points, ...randomPoints]);
+  };
+
+/**
+ * The function `generateConvexHull` calculates the convex hull of a set of points and updates the
+ * convex hull points and an array with the result.
+ */
+  const generateConvexHull = () => {
+    done = 0;
+    check = -1;
+    fhull = convexHull(points);
+    console.log(points.length);
+    console.log(fhull.length);
+    setConvexHullPoints(fhull[fhull.length - 1][2]);
+    setMyArr(fhull);
+  };
+
+/**
+ * The `runConvexHull` function runs a continuous loop at intervals of 600 milliseconds until a
+ * condition is met.
+ */
+  const runConvexHull = () => {
+    const interval = setInterval(() => {
+      if (!done) {
+        nextState();
+      }
+      else {
+        clearInterval(interval);
+      }
+    }, 600)
+  };
+
+/**
+ * The `nextState` function increments the `check` variable and sets the current state if `check` is
+ * less than `noOfStates - 1`, otherwise it sets `done` to 1.
+ */
+  const nextState = () => {
+    // document.getElementById("description-container").innerHTML = "Description for";
+    if (check &lt; noOfStates - 1) {
+      check = check + 1;
+      setCurrentState(check);
+    }
+    else if (check === noOfStates - 1) {
+      done = 1;
+    }
+  };
+
+/**
+ * The `prevState` function decreases the `check` variable by 1 and updates the current state if
+ * `check` is greater than 0.
+ */
+  const prevState = () => {
+    done = 0;
+    if (check > 0) {
+      check = check - 1;
+      setCurrentState(check);
+    }
+  };
+
+  return (
+    &lt;div className="App">
+      &lt;h1>Convex Hull Visualization&lt;/h1>
+      &lt;div className="canvas-container">
+        &lt;Canvas points={points} convexHullPoints={convexHullPoints} onClick={handlePointClick} currentState={currentState} myArr={myArr} updateDescription={updateDescription} />
+      &lt;/div>
+      &lt;div className="button-container">
+        &lt;Button onClick={generateConvexHull} label="Generate Convex Hull" />
+        &lt;Button onClick={nextState} label="Next State" />
+        &lt;Button onClick={prevState} label="Previous State" />
+        &lt;Button onClick={runConvexHull} label="RunConvexHull" />
+        &lt;Button onClick={generateRandomPoints} label="Generate Random Points" />
+      &lt;/div>
+      &lt;div className="description-container">
+          &lt;p>{description}&lt;/p>
+      &lt;/div>
+    &lt;/div>
+  );
+}
+
+/**
+ * The function `handlePointClick` adds a new point to an array of points.
+ * @param newPoint - The `newPoint` parameter in the `handlePointClick` function represents a new point
+ * that is being added to an array of points.
+ */
+const handlePointClick = (newPoint) => {
+  setPoints([...points, newPoint]);
+  // storePoints = [...points,newPoint];
+};
+
+/**
+* The updateDescription function updates the description with a new value.
+* @param newDescription - The `updateDescription` function takes a `newDescription` parameter, which
+* is used to update the description in the code.
+*/
+const updateDescription = (newDescription) => {
+  setDescription(newDescription);
+};
+
+/**
+* The function `generateRandomPoints` generates 20 random points with x and y coordinates within
+* specified canvas dimensions and adds them to an existing array of points.
+*/
+const generateRandomPoints = () => {
+  const randomPoints = [];
+  for (let i = 0; i &lt; 20; i++) {
+    // Generate random x and y coordinates within canvas dimensions
+    const randomX = Math.random() * 500; // Change canvasWidth to your canvas width
+    const randomY = Math.random() * 500; // Change canvasHeight to your canvas height
+    randomPoints.push({ x: randomX, y: randomY });
+  }
+  // points.push(...randomPoints);
+  setPoints([...points, ...randomPoints]);
+};
+
+/**
+* The function `generateConvexHull` calculates the convex hull of a set of points and updates the
+* convex hull points and an array with the result.
+*/
+const generateConvexHull = () => {
+  done = 0;
+  check = -1;
+  fhull = convexHull(points);
+  console.log(points.length);
+  console.log(fhull.length);
+  setConvexHullPoints(fhull[fhull.length - 1][2]);
+  setMyArr(fhull);
+};
+
+/**
+* The `runConvexHull` function runs a continuous loop at intervals of 600 milliseconds until a
+* condition is met.
+*/
+const runConvexHull = () => {
+  const interval = setInterval(() => {
+    if (!done) {
+      nextState();
+    }
+    else {
+      clearInterval(interval);
+    }
+  }, 600)
+};
+
+/**
+* The `nextState` function increments the `check` variable and sets the current state if `check` is
+* less than `noOfStates - 1`, otherwise it sets `done` to 1.
+*/
+const nextState = () => {
+  // document.getElementById("description-container").innerHTML = "Description for";
+  if (check &lt; noOfStates - 1) {
+    check = check + 1;
+    setCurrentState(check);
+  }
+  else if (check === noOfStates - 1) {
+    done = 1;
+  }
+};
+
+/**
+* The `prevState` function decreases the `check` variable by 1 and updates the current state if
+* `check` is greater than 0.
+*/
+const prevState = () => {
+  done = 0;
+  if (check > 0) {
+    check = check - 1;
+    setCurrentState(check);
+  }
+};
+
+export default App;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-JARVIS_MARCH_Algo.html">JARVIS_MARCH_Algo</a></li><li><a href="module-JM_Canvas.html">JM_Canvas</a></li><li><a href="module-JM_Visualization.html">JM_Visualization</a></li><li><a href="module-KPS_Algo.html">KPS_Algo</a></li><li><a href="module-KPS_Canvas.html">KPS_Canvas</a></li><li><a href="module-KPS_Visualization.html">KPS_Visualization</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Apr 02 2024 21:45:54 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

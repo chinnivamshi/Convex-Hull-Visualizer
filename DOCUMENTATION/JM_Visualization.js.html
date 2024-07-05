@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: JM_Visualization.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: JM_Visualization.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file This file controls the user interaction and ties everything together. 
+ * It uses features like useEffect to react to events (like button clicks) and triggers updates to the visualization based on the chosen 
+ * functionality (generating the hull, navigating through algorithm states, etc.).
+ */
+
+/**
+ * JM_Visualization module
+ * @module JM_Visualization
+ */
+// App.js Best code
+import React, { useState } from "react";
+import Canvas from "./Canvas";
+import Button from "./Button";
+import convexHull from "./convexHull";
+import "./march.css";
+
+/* The lines `let check = 0;`, `let fhull = [];`, and `let done = 0;` are declaring three variables
+`check`, `fhull`, and `done` respectively and initializing them with initial values. */
+let check = 0;
+let fhull = [];
+let done = 0;
+
+/**
+ * The `App` function in JavaScript visualizes the Convex Hull algorithm with interactive controls for
+ * generating random points, running the algorithm step by step, and displaying the convex hull points
+ * and edges.
+ * @returns The `App` component is being returned, which contains the visualization and controls for
+ * generating and animating the Convex Hull of a set of points. The component includes a title, canvas
+ * for displaying points and Convex Hull, buttons for generating Convex Hull, moving to next/previous
+ * states, running the Convex Hull algorithm, and generating random points. Additionally, there are
+ * description containers that provide information
+ */
+function App() {
+  const [points, setPoints] = useState([]);
+  const [convexHullPoints, setConvexHullPoints] = useState([]);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [myArr, setmyArr] = useState([]);
+  const [currentState, setcurrentState] = useState(0);
+  const [selectedEffect, setSelectedEffect] = useState(null);
+
+  const handlePointClick = (newPoint) => {
+    setPoints([...points, newPoint]);
+  };
+
+/**
+ * The function `generateRandomPoints` generates 20 random points with x and y coordinates within a
+ * range of 0 to 500 and adds them to an existing array of points.
+ */
+  const generateRandomPoints = () => {
+    const randomPoints = [];
+    for (let i = 0; i &lt; 20; i++) {
+      const randomX = Math.random() * 500;
+      const RandomY = Math.random() * 500;
+      randomPoints.push({ x: randomX, y: RandomY });
+    }
+    setPoints([...points, ...randomPoints]);
+  };
+
+  let no_States = convexHull(points).length;
+
+/**
+ * The function `generateConvexHull` calculates the convex hull of a set of points and updates the
+ * state with the resulting convex hull points.
+ */
+  const generateConvexHull = () => {
+    done = 0;
+    check = 0;
+    fhull = convexHull(points);
+    setConvexHullPoints(fhull[no_States - 1][3]);
+    animateConvexHull(fhull[no_States - 1][3]);
+    setSelectedEffect("renderCanvas");
+    setmyArr(fhull);
+  };
+
+/**
+ * The function `animateConvexHull` iterates through the points of a convex hull and updates the
+ * current step at a specified interval for animation.
+ * @param fhull - The `fhull` parameter in the `animateConvexHull` function seems to represent an array
+ * that contains the steps or points of a convex hull algorithm. Each step of the algorithm is likely
+ * represented as an element in the `fhull` array, and the function animates through these steps
+ */
+  const animateConvexHull = (fhull) => {
+    let step = 0;
+    const interval = setInterval(() => {
+      if (step &lt; fhull.length) {
+        setCurrentStep(step);
+        step++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100); // Adjust the speed of animation here
+  };
+
+
+/**
+ * The `RunConvexHull` function uses an interval to repeatedly call `nextState` until a condition is
+ * met.
+ */
+  const RunConvexHull = () => {
+    const interval1 = setInterval(() => {
+      if (!done) {
+        nextState();
+      } else {
+        clearInterval(interval1);
+      }
+    }, 50); // Adjust the speed of animation here
+  };
+
+/**
+ * The function `nextState` increments the `check` variable and updates the current state and selected
+ * effect based on certain conditions.
+ */
+  const nextState = () => {
+    if (check === -1) {
+      check = check + 1;
+      setcurrentState(check);
+      setSelectedEffect("displayStates");
+    }
+    if (check &lt; no_States) {
+      setSelectedEffect("displayStates");
+      setcurrentState(check);
+      check = check + 1;
+    } else if (check === no_States) {
+      done = 1;
+    }
+  };
+
+/**
+ * The `prevState` function decrements the `check` variable and updates the current state and selected
+ * effect accordingly.
+ */
+  const prevState = () => {
+    done = 0;
+    if (check === no_States) {
+      check = check - 1;
+      setcurrentState(check);
+      setSelectedEffect("displayStates");
+    }
+    if (check >= 0) {
+      setSelectedEffect("displayStates");
+      setcurrentState(check);
+      check = check - 1;
+    }
+  };
+
+  return (
+    &lt;div className="App">
+      &lt;h1>Convex Hull Visualization&lt;/h1>
+      &lt;div className="canvas-container-1">
+        &lt;Canvas
+          points={points}
+          convexHullPoints={convexHullPoints}
+          onClick={handlePointClick}
+          currentStep={currentStep}
+          myArr={myArr}
+          currentState={currentState}
+          selectedEffect={selectedEffect}
+        />
+      &lt;/div>
+      &lt;div className="button-container-1">
+        &lt;Button onClick={generateConvexHull} label="Generate Convex Hull" />
+        &lt;Button onClick={nextState} label="Next State" />
+        &lt;Button onClick={prevState} label="Previous State" />
+        &lt;Button onClick={RunConvexHull} label="RunConvexHull" />
+        &lt;Button onClick={generateRandomPoints} label="Generate Random Points" />
+      &lt;/div>
+      {check >= 1 &amp;&amp; check &lt;= no_States ? (
+        &lt;div className="description-container-1">
+          &lt;p>
+            The points lying on the Convex Hull are denoted by black colour. Red
+            solid line indicates the edges of Convex Hull. Red dotted line
+            indicates the Candidate edge of the Convex Hull. Blue dotted line indicates the
+            current processing edge.
+          &lt;/p>
+        &lt;/div>
+      ) : (
+        &lt;div className="description-container-1">
+          &lt;p>
+            Starting from a leftmost point of the data set, we keep the points
+            in the convex hull by anti-clockwise rotation. From a current point,
+            we can choose the next point by checking the orientations of those
+            points from the current point. When the angle is largest, the point
+            is chosen. After completing all points, when the next point is the
+            start point, stop the algorithm.
+          &lt;/p>
+        &lt;/div>
+      )}
+    &lt;/div>
+  );
+}
+
+/**
+ * The function `generateRandomPoints` generates 20 random points with x and y coordinates within a
+ * range of 0 to 500 and adds them to an existing array of points.
+ */
+const generateRandomPoints = () => {
+  const randomPoints = [];
+  for (let i = 0; i &lt; 20; i++) {
+    const randomX = Math.random() * 500;
+    const RandomY = Math.random() * 500;
+    randomPoints.push({ x: randomX, y: RandomY });
+  }
+  setPoints([...points, ...randomPoints]);
+};
+
+let no_States = convexHull(points).length;
+
+/**
+* The function `generateConvexHull` calculates the convex hull of a set of points and updates the
+* state with the resulting convex hull points.
+*/
+const generateConvexHull = () => {
+  done = 0;
+  check = 0;
+  fhull = convexHull(points);
+  setConvexHullPoints(fhull[no_States - 1][3]);
+  animateConvexHull(fhull[no_States - 1][3]);
+  setSelectedEffect("renderCanvas");
+  setmyArr(fhull);
+};
+
+/**
+* The function `animateConvexHull` iterates through the points of a convex hull and updates the
+* current step at a specified interval for animation.
+* @param fhull - The `fhull` parameter in the `animateConvexHull` function seems to represent an array
+* that contains the steps or points of a convex hull algorithm. Each step of the algorithm is likely
+* represented as an element in the `fhull` array, and the function animates through these steps
+*/
+const animateConvexHull = (fhull) => {
+  let step = 0;
+  const interval = setInterval(() => {
+    if (step &lt; fhull.length) {
+      setCurrentStep(step);
+      step++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 100); // Adjust the speed of animation here
+};
+
+
+/**
+* The `RunConvexHull` function uses an interval to repeatedly call `nextState` until a condition is
+* met.
+*/
+const RunConvexHull = () => {
+  const interval1 = setInterval(() => {
+    if (!done) {
+      nextState();
+    } else {
+      clearInterval(interval1);
+    }
+  }, 50); // Adjust the speed of animation here
+};
+
+/**
+* The function `nextState` increments the `check` variable and updates the current state and selected
+* effect based on certain conditions.
+*/
+const nextState = () => {
+  if (check === -1) {
+    check = check + 1;
+    setcurrentState(check);
+    setSelectedEffect("displayStates");
+  }
+  if (check &lt; no_States) {
+    setSelectedEffect("displayStates");
+    setcurrentState(check);
+    check = check + 1;
+  } else if (check === no_States) {
+    done = 1;
+  }
+};
+
+/**
+* The `prevState` function decrements the `check` variable and updates the current state and selected
+* effect accordingly.
+*/
+const prevState = () => {
+  done = 0;
+  if (check === no_States) {
+    check = check - 1;
+    setcurrentState(check);
+    setSelectedEffect("displayStates");
+  }
+  if (check >= 0) {
+    setSelectedEffect("displayStates");
+    setcurrentState(check);
+    check = check - 1;
+  }
+};
+
+export default App;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-JARVIS_MARCH_Algo.html">JARVIS_MARCH_Algo</a></li><li><a href="module-JM_Canvas.html">JM_Canvas</a></li><li><a href="module-JM_Visualization.html">JM_Visualization</a></li><li><a href="module-KPS_Algo.html">KPS_Algo</a></li><li><a href="module-KPS_Canvas.html">KPS_Canvas</a></li><li><a href="module-KPS_Visualization.html">KPS_Visualization</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Apr 02 2024 21:45:54 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
