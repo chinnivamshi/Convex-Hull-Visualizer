@@ -2,6 +2,15 @@
 
 This project implements two convex hull algorithms: Jarvis March and Kirkpatrick-Seidel, and visualizes their working using a web-based interface built with React.
 
+## Contributors
+| Name |
+| :-------- |
+| `Atharva Chikhale` |
+| `Suyash Patil` |
+| `Chinni Vamshi Krushna` |
+| `Aditya Aggarwal` |
+| `Utkarsh Tiwari` |
+
 ## Table of Contents
 
 - [Introduction](#introduction)
