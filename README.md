@@ -1,13 +1,13 @@
 # Convex-Hull-Visualizer
 
-This project implements two convex hull algorithms: Jarvis March and Kirkpatrick-Seidel, and visualizes their working using a web-based interface built with React.
+This project implements two convex hull algorithms: Jarvis March and Kirkpatrick-Seidel, and visualizes their working using a web-based interface built with React App.
 
 ## Contributors
 | Name |
 | :-------- |
 | `Atharva Chikhale` |
 | `Suyash Patil` |
-| `Chinni Vamshi Krushna` |
+| `Chinni Vamshi Krushna` | 
 | `Aditya Aggarwal` |
 | `Utkarsh Tiwari` |
 
